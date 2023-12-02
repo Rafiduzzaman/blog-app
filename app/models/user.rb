@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   validates :name, presence: true
-  validates :photo_url, presence: true, format: { with: %r{\Ahttps?://.*\z}, message: 'must be a valid URL' }
+  validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :photo_url, allow_blank: true, format: { with: %r{\Ahttps?://.*\z}, message: 'must be a valid URL' }
   validates :bio, length: { maximum: 500 }
 
   def three_most_recent_posts
