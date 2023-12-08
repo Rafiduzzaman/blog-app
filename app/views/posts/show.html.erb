@@ -1,2 +1,14 @@
-<h1>Post#show</h1>
-<p>I am in app/views/users/index.html.erb</p>
+<div class="user-list">
+  <div class="flex justify-between">
+    <h3 class="text-2xl"><%= "Post ##{@post.id} by #{@author.name}" %></h3>
+    <p class="text-sm text-gray-500">Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
+  </div>
+  <div class="py-4">
+    <%= @post.text %>
+  </div>
+  <ul>
+    <% @post.comments.each do |comment| %>
+    <li><%= "#{comment.user.name}: #{comment.text}" %></li>
+    <% end %>
+  </ul>
+</div>

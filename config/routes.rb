@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show]
   end
 
-  resources :posts, only: [:index, :show]  # Add this line
+  resources :posts, only: [:index, :show] 
+  get "up" => "rails/health#show", as: :rails_health_check
 end
