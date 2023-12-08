@@ -7,7 +7,7 @@
         <li class="all_user_post">
           <%= render partial: "partials/post_item", locals: { post: post, index:index } %>
           <% comments=post.five_recent_comments %>
-          <%= render partial: "partials/comments_list", locals: { comments: comments} %>
+          <%= render partial: "partials/comments_lists", locals: { comments: comments} %>
         </li>
       <% end %>
     </ul>
