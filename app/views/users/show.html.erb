@@ -1,2 +1,22 @@
-<h1>Users#show</h1>
-<p>I am in app/views/users/show.html.erb</p>
+<div class=''>
+    <%= render partial: 'partials/user_profile', locals: { user: @user } %>
+    <div class='mb-4'>
+        <h3 class='text-xl bp-3 text-pink-700 font-bold'>Bio <h3>
+        <div class='text-pink-400 border-b-2 border-pink-200 pb-3'>
+            <%=@user.bio%>
+        </div>
+    </div>
+    <div class='mb-4'>
+        <h3 class='text-xl bp-4 text-pink-700'>Posts<h3>
+        <ul class='flex flex-col gap-2'>
+            <% @user.three_most_recent_posts.each_with_index do |post, index| %>
+                <li>
+                    <%= render partial: 'partials/post_item', locals: { post: post, index:index } %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <div>
+        <%= link_to 'See all posts', user_posts_path(@user.id), method: :get, class: 'bg-pink-800 text-white py-2 px-6 rounded'%>
+    </div>
+</div>
