@@ -1,10 +1,9 @@
-# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   def index
-    # Placeholder action
+    render 'users/index'
   end
 
   def show
-    # Placeholder action
+    render 'users/show'
   end
 end

@@ -1,10 +1,9 @@
-# app/controllers/posts_controller.rb
 class PostsController < ApplicationController
   def index
-    # Placeholder action
+    render 'posts/index'
   end
 
   def show
-    # Placeholder action
+    render 'posts/show'
   end
 end

@@ -1,23 +1,43 @@
-# spec/requests/users_spec.rb
 require 'rails_helper'
-require 'rails-controller-testing' # Add this line
-RSpec.describe 'Users', type: :request do
-  describe 'GET /users' do
-    it 'returns a successful response' do
+
+RSpec.describe UsersController, type: :request do
+  describe 'GET /index' do
+    before :each do
       get '/users'
-      expect(response).to have_http_status(200)
     end
 
-    it 'renders the correct template' do
-      get '/users'
+    it 'returns success status' do
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'renders index view' do
       expect(response).to render_template(:index)
     end
 
-    it 'includes correct placeholder text in the response body' do
-      get '/users'
-      expect(response.body).to include('All Users')
+    it 'include the correct placeholder text' do
+      expect(response.body).to include('Users#index')
     end
   end
 
-  # Similar blocks for other actions (show, create, update, destroy)
+  describe 'GET /show' do
+    def valid_attributes
+      { name: 'Fatema', bio: 'Fatema\'s bio', posts_counter: 0 }
+    end
+    let(:user) { User.create! valid_attributes }
+
+    it 'returns success status' do
+      get user_url(user)
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'renders show view' do
+      get user_path(user)
+      expect(response).to render_template(:show)
+    end
+
+    it 'include the correct placeholder text' do
+      get user_path(user)
+      expect(response.body).to include('Users#show')
+    end
+  end
 end
