@@ -1,7 +1,10 @@
 <div class='user_profile'>
   <%= render partial: "partials/user_profile", locals: { user: @user } %>
   <div class='user_posts'>
-  <%if @posts.present?%>
+  <div class="add_post_btn">
+      <%= link_to 'Add Post', new_user_post_path(@current_user.id) %>
+    </div>
+    <%if @posts.present?%>
     <ul id='users_list'>
       <% @posts.each_with_index do |post, index| %>
         <li class="all_user_post">

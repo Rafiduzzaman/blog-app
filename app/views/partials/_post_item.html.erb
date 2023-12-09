@@ -1,12 +1,12 @@
 <div class=''>
   <h4 class='text-xl bp-3 text-pink-900'>
-    <%= link_to user_post_path(post.user,post) do %> 
-      <div class='py-2 text-pink-900'>
-        <span class='text-pink-900'>#<%=index + 1%></span>
-        <%=post.title%>
-      </div>
-    <%end%>
-  </h4>
+<%= link_to user_post_path(post.author, post) do %>
+  <div class='py-2 text-pink-900'>
+    <span class='text-pink-900'>#<%= index + 1 %></span>
+    <%= post.title %>
+  </div>
+<% end %>
+</h4>
   <div class=''>
     <div class=''>
       <%=post.text%>

@@ -6,6 +6,12 @@
   <div class="py-4">
     <%= @post.text %>
   </div>
+  <div class="">
+    <%=button_to 'Like', user_post_likes_path(@current_user.id, @post), method: :post ,  class:' px-4 bg-pink-900 text-white border-4 border-pink-900 text-white'%>
+  </div>
+  <div class="mt-4">
+    <%= render 'comments/new' %>
+  </div>
   <ul>
     <% @post.comments.each do |comment| %>
     <li><%= "#{comment.user.name}: #{comment.text}" %></li>
