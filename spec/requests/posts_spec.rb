@@ -14,7 +14,7 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'include the correct placeholder text' do
-      expect(response.body).to include('Posts#index')
+      expect(response.body).to include('Number of posts:')
     end
   end
 

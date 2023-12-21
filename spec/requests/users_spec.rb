@@ -15,7 +15,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     it 'include the correct placeholder text' do
-      expect(response.body).to include('Users#index')
+      expect(response.body).to include('Number of posts:')
     end
   end
 
@@ -37,7 +37,7 @@ RSpec.describe UsersController, type: :request do
 
     it 'include the correct placeholder text' do
       get user_path(user)
-      expect(response.body).to include('Users#show')
+      expect(response.body).to include('Number of posts:')
     end
   end
 end
