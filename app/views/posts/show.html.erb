@@ -1,10 +1,10 @@
 <div class="user-list">
   <div class="flex justify-between">
     <h3 class="text-2xl"><%= "Post ##{@post.id} by #{@author.name}" %></h3>
-    <p class="text-sm text-gray-500">Comments: <%= @post.comments.count %>, Likes: <%= @post.likes.count %></p>
-  </div>
+     <p class="text-sm text-gray-500">Comments: <%= @post.comments.count %>, Like: <%= @post.likes.count %></p></div>
   <div class="py-4">
-    <%= @post.text %>
+    <h3 class="text-3xl"><%= @post.title %></h3>
+  <p><%= @post.text %></p>
   </div>
   <div class="">
     <%=button_to 'Like', user_post_likes_path(@current_user.id, @post), method: :post ,  class:' px-4 bg-pink-900 text-white border-4 border-pink-900 text-white'%>
@@ -13,7 +13,7 @@
     <%= render 'comments/new' %>
   </div>
   <ul>
-    <% @post.comments.each do |comment| %>
+    <% @post.comments.includes([:user]) do |comment| %>
     <li><%= "#{comment.user.name}: #{comment.text}" %></li>
     <% end %>
   </ul>

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :bio, length: { maximum: 500 }
 
   def three_most_recent_posts
-    posts.order(created_at: :desc).limit(3)
+    posts.includes(:author).order(created_at: :desc).limit(3)
   end
 
   def update_posts_counter

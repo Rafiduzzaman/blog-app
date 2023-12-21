@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   # create a show action
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:comments, :likes).find(params[:id])
     @current_user = current_user
     @author = User.find(@post.author_id)
     @comments = @post.comments
