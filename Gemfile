@@ -47,6 +47,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'tailwindcss-rails'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
 end
@@ -69,3 +70,5 @@ group :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
+
+gem 'devise', '~> 4.9'
