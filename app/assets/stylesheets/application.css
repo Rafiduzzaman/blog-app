@@ -3,7 +3,7 @@
   flex-direction: column;
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
   padding: 10px; /* Adjust the padding as needed */
-  width: 10%;
+  width: 100%;
 }
 
 .field input {
