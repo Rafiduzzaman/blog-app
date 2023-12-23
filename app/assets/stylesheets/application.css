@@ -1,4 +1,15 @@
-/* application.scss */
-@import "application";
-@import "tailwind";
-@import "inter-font";
+.field_input {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  padding: 10px; /* Adjust the padding as needed */
+  width: 10%;
+}
+
+.field input {
+  width: 100%;
+  padding: 8px; /* Adjust the padding as needed */
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
